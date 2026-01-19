@@ -1,18 +1,25 @@
 package cz.bradavey.game;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class Room {
     private String name;
     private String description;
-    private Map<String, Room> exits;
+    private String[] exits;
     private List<Item> items;
     private NPC npc;
 
+    public Room(String name, String description, String[] exits, List<Item> items, NPC npc) {
+        this.name = name;
+        this.description = description;
+        this.exits = exits;
+        this.items = items;
+        this.npc = npc;
+    }
+
     public String getName() {
-        //TODO all
-        return null;
+        return name;
     }
 
     public Room getExit(String name) {
@@ -32,5 +39,16 @@ public class Room {
     public NPC getNpc() {
         //TODO all
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", exits=" + Arrays.toString(exits) +
+                ", items=" + Arrays.toString(items.toArray()) +
+                ", npc=" + npc +
+                '}';
     }
 }

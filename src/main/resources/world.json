@@ -1,0 +1,113 @@
+{
+  "startingRoom": "kajuta",
+  "rooms": [
+    {
+      "name": "Kajuta",
+      "description": "Jsi ve své kajutě. Je tu ticho, jen červené nouzové světlo bliká. Vzduch je těžký.",
+      "exits": [
+        "chodba"
+      ],
+      "items": [],
+      "npc": null
+    },
+    {
+      "name": "Hlavní chodba",
+      "description": "Centrální rozcestník stanice. Na stěnách jsou šmouhy od kouře.",
+      "exits": [
+        "kajuta",
+        "jidelna",
+        "sklad",
+        "osetrovna",
+        "laborator",
+        "technicka_chodba"
+      ],
+      "items": [],
+      "npc": null
+    },
+    {
+      "name": "Sklad",
+      "description": "Místnost plná rozházených beden a náhradních dílů.",
+      "exits": [
+        "chodba"
+      ],
+      "items": [
+        {
+          "name": "svitilna",
+          "description": "Vysoce výkonná LED svítilna. Nutná pro tmavé prostory.",
+          "portable": true
+        }
+      ],
+      "npc": null
+    },
+    {
+      "name": "Jídelna",
+      "description": "Převržené stoly a rozlité jídlo. V rohu sedí poškozený robot.",
+      "exits": [
+        "chodba"
+      ],
+      "items": [],
+      "npc": {
+        "name": "robot",
+        "dialogInitial": "Bzzzt... Detekována kritická chyba napájení... Potřebuji náhradní zdroj energie...",
+        "dialogSuccess": "Napájení obnoveno. Děkuji, inženýre. Můj protokol mi nařizuje sdělit ti kód k Jádru: 5-9-1.",
+        "requiredItemName": "baterie",
+        "questCompleted": false
+      }
+    },
+    {
+      "name": "Ošetřovna",
+      "description": "Sterilní bílá místnost. Skříně s léky jsou vyrabované.",
+      "exits": [
+        "chodba"
+      ],
+      "items": [
+        {
+          "name": "baterie",
+          "description": "Univerzální napájecí článek. Vypadá nabitě.",
+          "portable": true
+        }
+      ],
+      "npc": null
+    },
+    {
+      "name": "Laboratoř",
+      "description": "Místnost plná počítačů a mikroskopů. Na stole něco leží.",
+      "exits": [
+        "chodba"
+      ],
+      "items": [
+        {
+          "name": "karta",
+          "description": "Servisní přístupová karta Level 5. Umožňuje přístup k jádru.",
+          "portable": true
+        }
+      ],
+      "npc": null
+    },
+    {
+      "name": "Technická chodba",
+      "description": "Úzký servisní tunel. Bez svítilny by tu byla absolutní tma. Na konci vidíš masivní dveře.",
+      "exits": [
+        "chodba",
+        "jadro"
+      ],
+      "items": [],
+      "npc": null
+    },
+    {
+      "name": "Jádro AI",
+      "description": "Srdce stanice Epsilon. Uprostřed místnosti hučí hlavní terminál.",
+      "exits": [
+        "technicka_chodba"
+      ],
+      "items": [
+        {
+          "name": "terminal",
+          "description": "Hlavní ovládací konzole stanice. Vyžaduje servisní kartu a kód.",
+          "portable": false
+        }
+      ],
+      "npc": null
+    }
+  ]
+}
