@@ -12,13 +12,11 @@ public class Item {
     }
 
     public String getName() {
-        //TODO all
-        return null;
+        return this.name;
     }
 
     public boolean isPortable() {
-        //TODO all
-        return false;
+        return this.portable;
     }
 
     @Override

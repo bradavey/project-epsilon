@@ -1,6 +1,6 @@
 package cz.bradavey.game;
 
 public interface Command {
-    String execute(Player player, String arg);
+    String execute(String arg);
     boolean exit();
 }

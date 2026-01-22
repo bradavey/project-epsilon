@@ -5,7 +5,7 @@ import cz.bradavey.game.Player;
 
 public class CommandUse implements Command {
     @Override
-    public String execute(Player player, String arg) {
+    public String execute(String arg) {
         //TODO all
         return "";
     }

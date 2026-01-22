@@ -20,6 +20,14 @@ public class WorldData {
         rooms.put(room.getName(), room);
     }
 
+    public Room getStartingRoom() {
+        return rooms.get(startingRoom);
+    }
+
+    public Map<String, Room> getRooms() {
+        return rooms;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
