@@ -1,7 +1,6 @@
 package cz.bradavey.game.commands;
 
 import cz.bradavey.game.Command;
-import cz.bradavey.game.Player;
 
 public class CommandQuit implements Command {
     @Override

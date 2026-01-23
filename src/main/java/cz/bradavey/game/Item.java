@@ -15,6 +15,10 @@ public class Item {
         return this.name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public boolean isPortable() {
         return this.portable;
     }

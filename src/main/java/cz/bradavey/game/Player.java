@@ -8,10 +8,12 @@ public class Player {
     private Room currentRoom;
     private final List<Item> inventory;
     private final int maxCapacity = 3;
+    private boolean hasCode;
 
     public Player(Room currentRoom) {
         this.currentRoom = currentRoom;
         this.inventory = new ArrayList<>();
+        this.hasCode = false;
     }
 
     public Room getCurrentRoom() {
@@ -20,6 +22,14 @@ public class Player {
 
     public void setCurrentRoom(Room room) {
         this.currentRoom = room;
+    }
+
+    public boolean isHasCode() {
+        return hasCode;
+    }
+
+    public void setHasCode(boolean hasCode) {
+        this.hasCode = hasCode;
     }
 
     /**
@@ -34,10 +44,23 @@ public class Player {
         return false;
     }
 
+    public List<Item> getInventory() {
+        return inventory;
+    }
+
     public Item removeItem(String itemName) {
         for (int i = 0; i < inventory.size(); i++) {
             if (inventory.get(i).getName().equalsIgnoreCase(itemName.trim())) {
                 return inventory.remove(i);
+            }
+        }
+        throw new InvalidParameterException("Item not in inventory");
+    }
+
+    public Item getItem(String itemName) {
+        for (int i = 0; i < inventory.size(); i++) {
+            if (inventory.get(i).getName().equalsIgnoreCase(itemName.trim())) {
+                return inventory.get(i);
             }
         }
         throw new InvalidParameterException("Item not in inventory");
@@ -50,6 +73,10 @@ public class Player {
             }
         }
         return false;
+    }
+
+    public boolean isInventoryFull() {
+        return inventory.size() >= maxCapacity;
     }
 
     @Override
@@ -68,7 +95,7 @@ public class Player {
             }
         }
         if (currentRoom.getNpc() != null) {
-            sb.append("\nCharacter").append(currentRoom.getNpc().getName());
+            sb.append("\nCharacter: ").append(currentRoom.getNpc().getName());
         }
         sb.append("\n");
         sb.append("Inventory: ");

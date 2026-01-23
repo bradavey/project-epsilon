@@ -1,11 +1,12 @@
 package cz.bradavey.game;
 
 public class NPC {
-    private String name;
-    private String dialogueInitial;
-    private String dialogueSuccess;
-    private String requiredItemName;
+    private final String name;
+    private final String dialogueInitial;
+    private final String dialogueSuccess;
+    private final String requiredItemName;
     private boolean questComplete;
+    private boolean hasBeenTalkedTo;
 
     public NPC(String name, String dialogueInitial, String dialogueSuccess, String requiredItemName, boolean questComplete) {
         this.name = name;
@@ -19,13 +20,36 @@ public class NPC {
         return name;
     }
 
-    public String talk(Player player) {
-        //TODO all
-        return null;
+    public boolean hasBeenTalkedTo() {
+        return hasBeenTalkedTo;
     }
-    public boolean receiveItem(Item item) {
-        //TODO all
-        return false;
+
+    public String getRequiredItemName() {
+        return requiredItemName;
+    }
+
+    public boolean isQuestComplete() {
+        return questComplete;
+    }
+
+    public String talk(Player player) {
+        if (!hasBeenTalkedTo) {
+            hasBeenTalkedTo = true;
+            return dialogueInitial;
+        }
+        if (questComplete) {
+            return "Quest already complete";
+        }
+        if (player.hasItem(requiredItemName)) {
+            boolean give = Console.scanString("Give item: " + requiredItemName + "to " + name + "\ny/n").trim().equalsIgnoreCase("y");
+            if (give) {
+                player.removeItem(requiredItemName);
+                questComplete = true;
+                player.setHasCode(true);
+                return dialogueSuccess;
+            }
+        }
+        return dialogueInitial;
     }
 
     @Override

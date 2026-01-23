@@ -51,10 +51,11 @@
       "items": [],
       "npc": {
         "name": "Unit-04",
-        "dialogInitial": "Bzzzt... Critical power failure detected... I need a replacement power source...",
-        "dialogSuccess": "Power restored. Thank you, engineer. My protocol requires me to give you the Core code: 5-9-1.",
+        "dialogueInitial": "Bzzzt... Critical power failure detected... I need a replacement power source...",
+        "dialogueSuccess": "Power restored. Thank you, engineer. My protocol requires me to give you the Core code: 5-9-1.",
         "requiredItemName": "Battery",
-        "questCompleted": false
+        "questCompleted": false,
+        "hasBeenTalkedTo": false
       },
       "lockItemName": null
     },

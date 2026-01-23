@@ -4,7 +4,6 @@ import cz.bradavey.game.Command;
 import cz.bradavey.game.Player;
 import cz.bradavey.game.Room;
 
-import java.security.InvalidParameterException;
 import java.util.Map;
 
 public class CommandGo implements Command {
@@ -26,7 +25,7 @@ public class CommandGo implements Command {
                 return "You can't go there";
             }
         }
-        throw new InvalidParameterException("Invalid room: " + arg);
+        return "Invalid room: " + arg;
     }
 
     @Override

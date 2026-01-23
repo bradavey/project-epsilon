@@ -2,6 +2,7 @@ package cz.bradavey.game;
 
 import cz.bradavey.game.commands.*;
 
+import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,23 +12,23 @@ public class CommandRegistry {
     private Map<String, Room> rooms;
     private final Map<String, Command> commands;
 
-    public CommandRegistry(Player player, Map<String, Room> rooms) {
+    public CommandRegistry(Player player, Map<String, Room> rooms) throws IOException {
         this.player = player;
         this.rooms = rooms;
         this.commands = initialize();
     }
 
-    private Map<String, Command> initialize() {
+    private Map<String, Command> initialize() throws IOException {
         Map<String, Command> result = new HashMap<>();
-        result.put("drop", new CommandDrop());
+        result.put("drop", new CommandDrop(player));
         result.put("go", new CommandGo(player, rooms));
         result.put("help", new CommandHelp());
-        result.put("hint", new CommandHint());
-        result.put("inspect", new CommandInspect());
+        result.put("hint", new CommandHint(player, rooms));
+        result.put("inspect", new CommandInspect(player, rooms));
         result.put("quit", new CommandQuit());
-        result.put("take", new CommandTake());
-        result.put("talk", new CommandTalk());
-        result.put("use", new CommandUse());
+        result.put("take", new CommandTake(player));
+        result.put("talk", new CommandTalk(player));
+        result.put("use", new CommandUse(player));
         return result;
     }
 

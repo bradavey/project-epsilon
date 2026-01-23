@@ -28,11 +28,22 @@ public class Room {
         return lockItemName;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public boolean containsExit(String name) {
         for (String exit : exits) {
             if(exit.equalsIgnoreCase(name)) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean containsImmovableItem() {
+        for (Item item : items) {
+            if (!item.isPortable()) return true;
         }
         return false;
     }
@@ -44,10 +55,28 @@ public class Room {
     public Item removeItem(String itemName) {
         for (int i = 0; i < items.size(); i++) {
             if (items.get(i).getName().equalsIgnoreCase(itemName)) {
-                return  items.remove(i);
+                return items.remove(i);
             }
         }
         return null;
+    }
+
+    public Item getItem(String itemName) {
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equalsIgnoreCase(itemName)) {
+                return items.get(i);
+            }
+        }
+        return null;
+    }
+
+    public boolean hasItem(String name) {
+        for (Item item : items) {
+            if (item.getName().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public NPC getNpc() {

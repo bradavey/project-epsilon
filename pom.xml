@@ -6,7 +6,7 @@
 
     <groupId>cz.bradavey.game</groupId>
     <artifactId>project-epsilon</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
