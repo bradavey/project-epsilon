@@ -64,7 +64,7 @@ public class Player {
             sb.append("\n");
             sb.append("Available items: ");
             for (Item item : currentRoom.getItems()) {
-                sb.append(item).append(", ");
+                sb.append(item.getName()).append(", ");
             }
         }
         if (currentRoom.getNpc() != null) {

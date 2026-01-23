@@ -8,7 +8,8 @@
         "chodba"
       ],
       "items": [],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Chodba",
@@ -22,7 +23,8 @@
         "technicka chodba"
       ],
       "items": [],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Sklad",
@@ -37,7 +39,8 @@
           "portable": true
         }
       ],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Jídelna",
@@ -52,7 +55,8 @@
         "dialogSuccess": "Napájení obnoveno. Děkuji, inženýre. Můj protokol mi nařizuje sdělit ti kód k Jádru: 5-9-1.",
         "requiredItemName": "baterie",
         "questCompleted": false
-      }
+      },
+      "lockItemName": null
     },
     {
       "name": "Ošetřovna",
@@ -67,7 +71,8 @@
           "portable": true
         }
       ],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Laboratoř",
@@ -82,7 +87,8 @@
           "portable": true
         }
       ],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Technická chodba",
@@ -92,7 +98,8 @@
         "jadro"
       ],
       "items": [],
-      "npc": null
+      "npc": null,
+      "lockItemName": "svitilna"
     },
     {
       "name": "Jádro AI",
@@ -107,7 +114,8 @@
           "portable": false
         }
       ],
-      "npc": null
+      "npc": null,
+      "lockItemName": "karta"
     }
   ]
 }

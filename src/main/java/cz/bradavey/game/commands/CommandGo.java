@@ -19,8 +19,12 @@ public class CommandGo implements Command {
     @Override
     public String execute(String arg) {
         if(rooms.containsKey(arg) && player.getCurrentRoom().containsExit(arg)) {
-            player.setCurrentRoom(rooms.get(arg));
-            return "Relocated to: " + player.getCurrentRoom().getName();
+            if(rooms.get(arg).getLockItemName() == null || player.hasItem(rooms.get(arg).getLockItemName())) {
+                player.setCurrentRoom(rooms.get(arg));
+                return "Relocated to: " + player.getCurrentRoom().getName();
+            } else {
+                return "You can't go there";
+            }
         }
         throw new InvalidParameterException("Invalid room: " + arg);
     }

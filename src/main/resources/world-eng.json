@@ -8,7 +8,8 @@
         "Corridor"
       ],
       "items": [],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Corridor",
@@ -22,7 +23,8 @@
         "Technical Corridor"
       ],
       "items": [],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Storage",
@@ -37,7 +39,8 @@
           "portable": true
         }
       ],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Canteen",
@@ -52,7 +55,8 @@
         "dialogSuccess": "Power restored. Thank you, engineer. My protocol requires me to give you the Core code: 5-9-1.",
         "requiredItemName": "Battery",
         "questCompleted": false
-      }
+      },
+      "lockItemName": null
     },
     {
       "name": "Infirmary",
@@ -67,7 +71,8 @@
           "portable": true
         }
       ],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Laboratory",
@@ -82,7 +87,8 @@
           "portable": true
         }
       ],
-      "npc": null
+      "npc": null,
+      "lockItemName": null
     },
     {
       "name": "Technical Corridor",
@@ -92,7 +98,8 @@
         "AI Core"
       ],
       "items": [],
-      "npc": null
+      "npc": null,
+      "lockItemName": "flashlight"
     },
     {
       "name": "AI Core",
@@ -107,7 +114,8 @@
           "portable": false
         }
       ],
-      "npc": null
+      "npc": null,
+      "lockItemName": "card"
     }
   ]
 }

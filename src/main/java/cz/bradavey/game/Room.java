@@ -4,22 +4,28 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Room {
-    private String name;
-    private String description;
-    private String[] exits;
-    private List<Item> items;
-    private NPC npc;
+    private final String name;
+    private final String description;
+    private final String[] exits;
+    private final List<Item> items;
+    private final NPC npc;
+    private final String lockItemName;
 
-    public Room(String name, String description, String[] exits, List<Item> items, NPC npc) {
+    public Room(String name, String description, String[] exits, List<Item> items, NPC npc, String lockItemName) {
         this.name = name;
         this.description = description;
         this.exits = exits;
         this.items = items;
         this.npc = npc;
+        this.lockItemName = lockItemName;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getLockItemName() {
+        return lockItemName;
     }
 
     public boolean containsExit(String name) {
@@ -32,17 +38,20 @@ public class Room {
     }
 
     public void addItem(Item item) {
-        //TODO all
+        items.add(item);
     }
 
     public Item removeItem(String itemName) {
-        //TODO all
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getName().equalsIgnoreCase(itemName)) {
+                return  items.remove(i);
+            }
+        }
         return null;
     }
 
     public NPC getNpc() {
-        //TODO all
-        return null;
+        return npc;
     }
 
     public String[] getExits() {
