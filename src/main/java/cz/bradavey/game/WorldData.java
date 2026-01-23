@@ -17,7 +17,7 @@ public class WorldData {
     }
 
     public void addRoom(Room room) {
-        rooms.put(room.getName(), room);
+        rooms.put(room.getName().toLowerCase(), room);
     }
 
     public Room getStartingRoom() {

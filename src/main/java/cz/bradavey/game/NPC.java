@@ -15,6 +15,10 @@ public class NPC {
         this.questComplete = questComplete;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String talk(Player player) {
         //TODO all
         return null;

@@ -22,9 +22,13 @@ public class Room {
         return name;
     }
 
-    public Room getExit(String name) {
-        //TODO all
-        return null;
+    public boolean containsExit(String name) {
+        for (String exit : exits) {
+            if(exit.equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void addItem(Item item) {
@@ -39,6 +43,14 @@ public class Room {
     public NPC getNpc() {
         //TODO all
         return null;
+    }
+
+    public String[] getExits() {
+        return exits;
+    }
+
+    public List<Item> getItems() {
+        return items;
     }
 
     @Override

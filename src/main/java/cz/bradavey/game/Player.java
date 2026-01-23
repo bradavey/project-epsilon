@@ -52,4 +52,30 @@ public class Player {
         return false;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Current room: ").append(currentRoom.getName()).append("\n");
+        sb.append("Available exits: ");
+        for (String exit : currentRoom.getExits()) {
+            sb.append(exit).append(", ");
+        }
+        if (!currentRoom.getItems().isEmpty()) {
+            sb.append("\n");
+            sb.append("Available items: ");
+            for (Item item : currentRoom.getItems()) {
+                sb.append(item).append(", ");
+            }
+        }
+        if (currentRoom.getNpc() != null) {
+            sb.append("\nCharacter").append(currentRoom.getNpc().getName());
+        }
+        sb.append("\n");
+        sb.append("Inventory: ");
+        for (Item item : inventory) {
+            sb.append(item.getName());
+        }
+        sb.append("\n");
+    return sb.toString();
+    }
 }

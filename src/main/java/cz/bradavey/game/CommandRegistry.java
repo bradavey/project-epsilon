@@ -8,17 +8,19 @@ import java.util.Map;
 
 public class CommandRegistry {
     private Player player;
+    private Map<String, Room> rooms;
     private final Map<String, Command> commands;
 
-    public CommandRegistry(Player player) {
+    public CommandRegistry(Player player, Map<String, Room> rooms) {
         this.player = player;
+        this.rooms = rooms;
         this.commands = initialize();
     }
 
     private Map<String, Command> initialize() {
         Map<String, Command> result = new HashMap<>();
         result.put("drop", new CommandDrop());
-        result.put("go", new CommandGo(player));
+        result.put("go", new CommandGo(player, rooms));
         result.put("help", new CommandHelp());
         result.put("hint", new CommandHint());
         result.put("inspect", new CommandInspect());

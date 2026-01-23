@@ -2,18 +2,27 @@ package cz.bradavey.game.commands;
 
 import cz.bradavey.game.Command;
 import cz.bradavey.game.Player;
+import cz.bradavey.game.Room;
+
+import java.security.InvalidParameterException;
+import java.util.Map;
 
 public class CommandGo implements Command {
-    Player player;
+    private Player player;
+    private Map<String, Room> rooms;
 
-    public CommandGo(Player player) {
+    public CommandGo(Player player, Map<String, Room> rooms) {
         this.player = player;
+        this.rooms = rooms;
     }
 
     @Override
     public String execute(String arg) {
-        //TODO all
-        return "";
+        if(rooms.containsKey(arg) && player.getCurrentRoom().containsExit(arg)) {
+            player.setCurrentRoom(rooms.get(arg));
+            return "Relocated to: " + player.getCurrentRoom().getName();
+        }
+        throw new InvalidParameterException("Invalid room: " + arg);
     }
 
     @Override

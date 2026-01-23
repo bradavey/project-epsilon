@@ -6,8 +6,7 @@ import cz.bradavey.game.Player;
 public class CommandQuit implements Command {
     @Override
     public String execute(String arg) {
-        //TODO all
-        return "";
+        return "Quitting...";
     }
 
     @Override

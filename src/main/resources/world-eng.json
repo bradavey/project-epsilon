@@ -1,0 +1,113 @@
+{
+  "startingRoom": "cabin",
+  "rooms": [
+    {
+      "name": "Cabin",
+      "description": "You are in your cabin. It is quiet, only a red emergency light is blinking. The air is heavy.",
+      "exits": [
+        "Corridor"
+      ],
+      "items": [],
+      "npc": null
+    },
+    {
+      "name": "Corridor",
+      "description": "The central junction of the station. There are smoke smears on the walls.",
+      "exits": [
+        "Cabin",
+        "Canteen",
+        "Storage",
+        "Infirmary",
+        "Laboratory",
+        "Technical Corridor"
+      ],
+      "items": [],
+      "npc": null
+    },
+    {
+      "name": "Storage",
+      "description": "A room full of scattered crates and spare parts.",
+      "exits": [
+        "Corridor"
+      ],
+      "items": [
+        {
+          "name": "Flashlight",
+          "description": "A high-powered LED flashlight. Necessary for dark areas.",
+          "portable": true
+        }
+      ],
+      "npc": null
+    },
+    {
+      "name": "Canteen",
+      "description": "Overturned tables and spilled food. A damaged robot is sitting in the corner.",
+      "exits": [
+        "Corridor"
+      ],
+      "items": [],
+      "npc": {
+        "name": "Unit-04",
+        "dialogInitial": "Bzzzt... Critical power failure detected... I need a replacement power source...",
+        "dialogSuccess": "Power restored. Thank you, engineer. My protocol requires me to give you the Core code: 5-9-1.",
+        "requiredItemName": "Battery",
+        "questCompleted": false
+      }
+    },
+    {
+      "name": "Infirmary",
+      "description": "A sterile white room. The medicine cabinets have been looted.",
+      "exits": [
+        "Corridor"
+      ],
+      "items": [
+        {
+          "name": "Battery",
+          "description": "A universal power cell. It looks charged.",
+          "portable": true
+        }
+      ],
+      "npc": null
+    },
+    {
+      "name": "Laboratory",
+      "description": "A room full of computers and microscopes. Something is lying on the table.",
+      "exits": [
+        "Corridor"
+      ],
+      "items": [
+        {
+          "name": "Card",
+          "description": "Service access card Level 5. Allows access to the core.",
+          "portable": true
+        }
+      ],
+      "npc": null
+    },
+    {
+      "name": "Technical Corridor",
+      "description": "A narrow service tunnel. Without a flashlight it would be absolute darkness. At the end you see massive doors.",
+      "exits": [
+        "Corridor",
+        "AI Core"
+      ],
+      "items": [],
+      "npc": null
+    },
+    {
+      "name": "AI Core",
+      "description": "The heart of Epsilon Station. In the center of the room the main terminal hums.",
+      "exits": [
+        "Technical Corridor"
+      ],
+      "items": [
+        {
+          "name": "terminal",
+          "description": "The station's main control console. Requires a service card and a code.",
+          "portable": false
+        }
+      ],
+      "npc": null
+    }
+  ]
+}

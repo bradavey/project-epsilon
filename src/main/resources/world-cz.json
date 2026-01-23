@@ -11,7 +11,7 @@
       "npc": null
     },
     {
-      "name": "Hlavní chodba",
+      "name": "Chodba",
       "description": "Centrální rozcestník stanice. Na stěnách jsou šmouhy od kouře.",
       "exits": [
         "kajuta",
@@ -19,7 +19,7 @@
         "sklad",
         "osetrovna",
         "laborator",
-        "technicka_chodba"
+        "technicka chodba"
       ],
       "items": [],
       "npc": null
@@ -98,7 +98,7 @@
       "name": "Jádro AI",
       "description": "Srdce stanice Epsilon. Uprostřed místnosti hučí hlavní terminál.",
       "exits": [
-        "technicka_chodba"
+        "technicka chodba"
       ],
       "items": [
         {
