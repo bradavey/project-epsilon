@@ -12,7 +12,7 @@ public class CommandTalk implements Command {
 
     @Override
     public String execute(String arg) {
-        if (player.getCurrentRoom().getNpc().getName().equalsIgnoreCase(arg.trim())) {
+        if (player.getCurrentRoom().getNpc() != null && player.getCurrentRoom().getNpc().getName().equalsIgnoreCase(arg.trim())) {
             return player.getCurrentRoom().getNpc().talk(player);
         }
         return "No character: " + arg;
