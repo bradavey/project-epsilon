@@ -13,7 +13,7 @@ public class JsonLoader {
         try (InputStream in = JsonLoader.class.getResourceAsStream(filePath)) {
 
             if (in == null) {
-                throw new FileNotFoundException("World data file not found in JAR: " + filePath);
+                throw new FileNotFoundException("World data file not found: " + filePath);
             }
 
             try (InputStreamReader reader = new InputStreamReader(in, StandardCharsets.UTF_8)) {

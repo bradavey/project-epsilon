@@ -36,7 +36,7 @@ public class Console {
 
     private void setGame() {
         try {
-            WorldData temp = JsonLoader.loadGameWorld("world-eng.json");
+            WorldData temp = JsonLoader.loadGameWorld("/world-eng.json");
             Map<String, Room> rooms = temp.getRooms();
             this.player = new Player(temp.getStartingRoom());
             this.registry = new CommandRegistry(player, rooms);
