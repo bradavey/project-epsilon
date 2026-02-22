@@ -16,7 +16,7 @@ public class CommandHint implements Command {
     public CommandHint(Player player, Map<String, Room> rooms) throws IOException{
         this.player = player;
         this.rooms = rooms;
-        this.hints = Console.getTXT("src/main/resources/hints-eng.txt");
+        this.hints = Console.getTXT("hints-eng.txt");
     }
 
     @Override

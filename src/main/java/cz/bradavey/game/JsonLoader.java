@@ -2,31 +2,44 @@ package cz.bradavey.game;
 
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class JsonLoader {
-    public static WorldData loadGameWorld(String filePath) throws FileNotFoundException {
+    public static WorldData loadGameWorld(String filePath) throws IOException {
         Gson gson = new Gson();
-        BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
-        WorldDataDTO dto = gson.fromJson(reader, WorldDataDTO.class);
+        try (InputStream in = JsonLoader.class.getResourceAsStream(filePath)) {
 
-        WorldData worldData = new WorldData();
-        worldData.setStartingRoom(dto.startingRoom);
+            if (in == null) {
+                throw new FileNotFoundException("World data file not found in JAR: " + filePath);
+            }
 
-        if (dto.rooms != null) {
-            for (Room room : dto.rooms) {
-                worldData.addRoom(room);
+            try (InputStreamReader reader = new InputStreamReader(in, StandardCharsets.UTF_8)) {
+
+                WorldDataDTO dto = gson.fromJson(reader, WorldDataDTO.class);
+
+                if (dto == null) {
+                    throw new IllegalStateException("Resource file is empty or invalid JSON");
+                }
+
+                WorldData worldData = new WorldData();
+                worldData.setStartingRoom(dto.startingRoom);
+
+                if (dto.rooms != null) {
+                    for (Room room : dto.rooms) {
+                        worldData.addRoom(room);
+                    }
+                }
+
+                if (!worldData.getRooms().isEmpty() || worldData.getStartingRoom() != null) {
+                    return worldData;
+                } else {
+                    throw new IllegalStateException("Invalid resource file contents");
+                }
             }
         }
-
-        if (!worldData.getRooms().isEmpty() || worldData.getStartingRoom() != null) {
-            return worldData;
-        } else throw new IllegalStateException("Invalid resource file contents");
     }
 
     private static class WorldDataDTO {

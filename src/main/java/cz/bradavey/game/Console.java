@@ -1,8 +1,7 @@
 package cz.bradavey.game;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -37,7 +36,7 @@ public class Console {
 
     private void setGame() {
         try {
-            WorldData temp = JsonLoader.loadGameWorld("src/main/resources/world-eng.json");
+            WorldData temp = JsonLoader.loadGameWorld("world-eng.json");
             Map<String, Room> rooms = temp.getRooms();
             this.player = new Player(temp.getStartingRoom());
             this.registry = new CommandRegistry(player, rooms);
@@ -68,7 +67,15 @@ public class Console {
     }
 
     public static String[] getTXT(String path) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(path));
-        return br.readAllLines().toArray(new String[0]);
+        try (InputStream in = Console.class.getResourceAsStream(path)) {
+
+            if (in == null) {
+                throw new FileNotFoundException("Resource not found: " + path);
+            }
+
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) {
+                return br.lines().toArray(String[]::new);
+            }
+        }
     }
 }
