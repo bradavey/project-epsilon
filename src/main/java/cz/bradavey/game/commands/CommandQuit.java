@@ -2,6 +2,9 @@ package cz.bradavey.game.commands;
 
 import cz.bradavey.game.Command;
 
+/**
+ * Handles exiting
+ */
 public class CommandQuit implements Command {
     @Override
     public String execute(String arg) {

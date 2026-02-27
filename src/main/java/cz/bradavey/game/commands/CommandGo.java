@@ -6,6 +6,9 @@ import cz.bradavey.game.Room;
 
 import java.util.Map;
 
+/**
+ * Moves player to different room
+ */
 public class CommandGo implements Command {
     private Player player;
     private Map<String, Room> rooms;
@@ -15,12 +18,16 @@ public class CommandGo implements Command {
         this.rooms = rooms;
     }
 
+    /**
+     * Moves player
+     * @param arg room to be moved to
+     */
     @Override
     public String execute(String arg) {
         if(rooms.containsKey(arg) && player.getCurrentRoom().containsExit(arg)) {
-            if(rooms.get(arg).getLockItemName() == null || player.hasItem(rooms.get(arg).getLockItemName())) {
+            if(rooms.get(arg).lockItemName() == null || player.hasItem(rooms.get(arg).lockItemName())) {
                 player.setCurrentRoom(rooms.get(arg));
-                return "Relocated to: " + player.getCurrentRoom().getName();
+                return "Relocated to: " + player.getCurrentRoom().name();
             } else {
                 return "You can't go there";
             }

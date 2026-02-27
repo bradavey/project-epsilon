@@ -7,6 +7,9 @@ import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Saves the commands
+ */
 public class CommandRegistry {
     private Player player;
     private Map<String, Room> rooms;
@@ -18,6 +21,11 @@ public class CommandRegistry {
         this.commands = initialize();
     }
 
+    /**
+     * Sets the commands
+     * @return Map of commands
+     * @throws IOException
+     */
     private Map<String, Command> initialize() throws IOException {
         Map<String, Command> result = new HashMap<>();
         result.put("drop", new CommandDrop(player));
@@ -32,6 +40,10 @@ public class CommandRegistry {
         return result;
     }
 
+    /**
+     * @param name name of wanted command
+     * @return wanted command
+     */
     public Command getCommand(String name) {
         String corrected = name.trim().toLowerCase();
         if(commands.containsKey(corrected)) {

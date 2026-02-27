@@ -5,11 +5,17 @@ import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Handles game cycle, loading and variables
+ */
 public class Console {
     private boolean gameOver = false;
     private Player player;
     private CommandRegistry registry;
 
+    /**
+     * Does game cycle
+     */
     public void run() {
         setGame();
         while(!gameOver) {
@@ -24,6 +30,10 @@ public class Console {
         }
     }
 
+    /**
+     * Processes command
+     * @param input whole user entered line
+     */
     private void processCommand(String input) {
         String command = input.trim().toLowerCase().split(" ")[0];
         String arg = null;
@@ -34,6 +44,9 @@ public class Console {
         gameOver = registry.getCommand(command).exit();
     }
 
+    /**
+     * Loads game data
+     */
     private void setGame() {
         try {
             WorldData temp = JsonLoader.loadGameWorld("/world-eng.json");
@@ -46,6 +59,10 @@ public class Console {
         }
     }
 
+    /**
+     * Clears console
+     * <li>Gemini work btw
+     */
     private void clearConsole() {
         String os = System.getProperty("os.name");
         try {
@@ -60,12 +77,23 @@ public class Console {
         }
     }
 
+    /**
+     * Scans for user input
+     * @param prompt prints if not null
+     * @return scanned input
+     */
     public static String scanString(String prompt) {
         if (!prompt.isEmpty()) System.out.print(prompt);
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
+    /**
+     * Loads txt resource
+     * @param path name of the file in resource folder
+     * @return array of loaded strings
+     * @throws IOException
+     */
     public static String[] getTXT(String path) throws IOException {
         try (InputStream in = Console.class.getResourceAsStream(path)) {
 

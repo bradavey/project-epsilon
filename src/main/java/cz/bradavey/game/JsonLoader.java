@@ -6,7 +6,16 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+/**
+ * Handles JSON resources
+ */
 public class JsonLoader {
+    /**
+     * Loads game data from JSON
+     * @param filePath name of the JSON in resource folder
+     * @return game data
+     * @throws IOException
+     */
     public static WorldData loadGameWorld(String filePath) throws IOException {
         Gson gson = new Gson();
 
@@ -42,6 +51,9 @@ public class JsonLoader {
         }
     }
 
+    /**
+     * Middle point between JSON and game data
+     */
     private static class WorldDataDTO {
         String startingRoom;
         List<Room> rooms;

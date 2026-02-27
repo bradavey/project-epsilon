@@ -3,9 +3,12 @@ package cz.bradavey.game;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Contains game data
+ */
 public class WorldData {
     private String startingRoom;
-    private Map<String, Room> rooms;
+    private final Map<String, Room> rooms;
 
 
     public WorldData() {
@@ -16,8 +19,12 @@ public class WorldData {
         this.startingRoom = startingRoom;
     }
 
+    /**
+     * adds room to rooms
+     * @param room added room
+     */
     public void addRoom(Room room) {
-        rooms.put(room.getName().toLowerCase(), room);
+        rooms.put(room.name().toLowerCase(), room);
     }
 
     public Room getStartingRoom() {

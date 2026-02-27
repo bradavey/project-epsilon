@@ -48,59 +48,67 @@ public class Player {
         return inventory;
     }
 
+    /**
+     * Removes item from inventory
+     * @param itemName name of removed item
+     * @return removed item
+     */
     public Item removeItem(String itemName) {
         for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).getName().equalsIgnoreCase(itemName.trim())) {
+            if (inventory.get(i).name().equalsIgnoreCase(itemName.trim())) {
                 return inventory.remove(i);
             }
         }
         throw new InvalidParameterException("Item not in inventory");
     }
 
-    public Item getItem(String itemName) {
-        for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).getName().equalsIgnoreCase(itemName.trim())) {
-                return inventory.get(i);
-            }
-        }
-        throw new InvalidParameterException("Item not in inventory");
-    }
-
+    /**
+     * Checks for item in inventory
+     * @param itemName name of checked item
+     * @return if item is in inventory
+     */
     public boolean hasItem(String itemName) {
         for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).getName().equalsIgnoreCase(itemName.trim())) {
+            if (inventory.get(i).name().equalsIgnoreCase(itemName.trim())) {
                 return true;
             }
         }
         return false;
     }
 
+    /**
+     * @return true if inventory is full
+     */
     public boolean isInventoryFull() {
         return inventory.size() >= maxCapacity;
     }
 
+    /**
+     * Sums up whole player
+     * @return state of player stats
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Current room: ").append(currentRoom.getName()).append("\n");
+        sb.append("Current room: ").append(currentRoom.name()).append("\n");
         sb.append("Available exits: ");
-        for (String exit : currentRoom.getExits()) {
+        for (String exit : currentRoom.exits()) {
             sb.append(exit).append(", ");
         }
-        if (!currentRoom.getItems().isEmpty()) {
+        if (!currentRoom.items().isEmpty()) {
             sb.append("\n");
             sb.append("Available items: ");
-            for (Item item : currentRoom.getItems()) {
-                sb.append(item.getName()).append(", ");
+            for (Item item : currentRoom.items()) {
+                sb.append(item.name()).append(", ");
             }
         }
-        if (currentRoom.getNpc() != null) {
-            sb.append("\nCharacter: ").append(currentRoom.getNpc().getName());
+        if (currentRoom.npc() != null) {
+            sb.append("\nCharacter: ").append(currentRoom.npc().getName());
         }
         sb.append("\n");
         sb.append("Inventory: ");
         for (Item item : inventory) {
-            sb.append(item.getName());
+            sb.append(item.name()).append(", ");
         }
         sb.append("\n");
     return sb.toString();

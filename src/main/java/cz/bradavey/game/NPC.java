@@ -32,6 +32,11 @@ public class NPC {
         return questComplete;
     }
 
+    /**
+     * Handles interactions with player
+     * @param player player that is being interacted with
+     * @return console output
+     */
     public String talk(Player player) {
         if (!hasBeenTalkedTo) {
             hasBeenTalkedTo = true;
