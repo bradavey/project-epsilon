@@ -5,6 +5,7 @@ import cz.bradavey.game.Item;
 import cz.bradavey.game.Player;
 import cz.bradavey.game.Room;
 
+import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +37,7 @@ public class CommandInspect implements Command {
     public String execute(String arg) {
         if (descriptions.containsKey(arg.toLowerCase().trim())) {
             return descriptions.get(arg.toLowerCase().trim());
-        } else return arg + " doesn't have a description";
+        } else throw new InvalidParameterException(arg + " doesn't have a description");
     }
 
     @Override

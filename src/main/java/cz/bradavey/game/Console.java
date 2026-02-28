@@ -25,7 +25,6 @@ public class Console {
                 processCommand(scanString(">> "));
             } catch (Exception e) {
                 System.out.println(e.getMessage());
-
             }
         }
     }
@@ -34,9 +33,14 @@ public class Console {
      * Processes command
      * @param input whole user entered line
      */
-    private void processCommand(String input) {
-        String command = input.trim().toLowerCase().split(" ")[0];
+    private void processCommand(String input) throws Exception {
+        String command;
         String arg = null;
+        try {
+            command = input.trim().toLowerCase().split(" ")[0];
+        } catch (Exception e) {
+            throw new Exception(e);
+        }
         try {
             arg = input.trim().substring(input.indexOf(' ') + 1).toLowerCase();
         } catch (Exception _){}

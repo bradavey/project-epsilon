@@ -3,6 +3,8 @@ package cz.bradavey.game.commands;
 import cz.bradavey.game.Command;
 import cz.bradavey.game.Player;
 
+import java.security.InvalidParameterException;
+
 /**
  * Handles interactions with NPCs
  */
@@ -23,7 +25,7 @@ public class CommandTalk implements Command {
         if (player.getCurrentRoom().npc() != null && player.getCurrentRoom().npc().getName().equalsIgnoreCase(arg.trim())) {
             return player.getCurrentRoom().npc().talk(player);
         }
-        return "No character: " + arg;
+        throw new InvalidParameterException("No character: " + arg);
     }
 
     @Override

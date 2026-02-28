@@ -32,6 +32,10 @@ public class NPC {
         return questComplete;
     }
 
+    public void setQuestComplete(boolean questComplete) {
+        this.questComplete = questComplete;
+    }
+
     /**
      * Handles interactions with player
      * @param player player that is being interacted with

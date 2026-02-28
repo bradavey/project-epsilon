@@ -4,6 +4,7 @@ import cz.bradavey.game.Command;
 import cz.bradavey.game.Player;
 import cz.bradavey.game.Room;
 
+import java.security.InvalidParameterException;
 import java.util.Map;
 
 /**
@@ -29,10 +30,10 @@ public class CommandGo implements Command {
                 player.setCurrentRoom(rooms.get(arg));
                 return "Relocated to: " + player.getCurrentRoom().name();
             } else {
-                return "You can't go there";
+                throw new IllegalStateException("You can't go there");
             }
         }
-        return "Invalid room: " + arg;
+        throw new InvalidParameterException("Invalid room: " + arg);
     }
 
     @Override

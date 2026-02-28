@@ -3,6 +3,8 @@ package cz.bradavey.game.commands;
 import cz.bradavey.game.Command;
 import cz.bradavey.game.Player;
 
+import java.security.InvalidParameterException;
+
 /**
  * Handles using immovable objects/winning
  */
@@ -24,9 +26,9 @@ public class CommandUse implements Command {
             if (player.isHasCode()) {
                 win = true;
                 return "You've won";
-            }
+            } else throw new IllegalStateException("You will need something more");
         }
-        return "";
+        throw new InvalidParameterException("No usable item: " + arg);
     }
 
     @Override

@@ -16,6 +16,12 @@ public class Player {
         this.hasCode = false;
     }
 
+    public Player(Room currentRoom, List<Item> inventory, boolean hasCode) {
+        this.currentRoom = currentRoom;
+        this.inventory = inventory;
+        this.hasCode = hasCode;
+    }
+
     public Room getCurrentRoom() {
         return this.currentRoom;
     }
@@ -59,7 +65,7 @@ public class Player {
                 return inventory.remove(i);
             }
         }
-        throw new InvalidParameterException("Item not in inventory");
+        throw new InvalidParameterException("Item not in inventory: " + itemName);
     }
 
     /**
