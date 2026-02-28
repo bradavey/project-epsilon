@@ -3,12 +3,17 @@ package cz.bradavey.game;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Stores individual room data
+ * <li> author: brada (bradadavidcz@gmail.com)
+ */
 public record Room(String name, String description, String[] exits, List<Item> items, NPC npc, String lockItemName) {
 
     /**
      * Checks for exit
      * @param name exit name
      * @return true if exit exists
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public boolean containsExit(String name) {
         for (String exit : exits) {
@@ -21,6 +26,7 @@ public record Room(String name, String description, String[] exits, List<Item> i
 
     /**
      * @return true if room contains immovable item
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public boolean containsImmovableItem() {
         for (Item item : items) {
@@ -32,6 +38,7 @@ public record Room(String name, String description, String[] exits, List<Item> i
     /**
      * Adds item to available items
      * @param item added item
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public void addItem(Item item) {
         items.add(item);
@@ -41,6 +48,7 @@ public record Room(String name, String description, String[] exits, List<Item> i
      * Removes from available items
      * @param itemName name of removed item
      * @return removed item
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public Item removeItem(String itemName) {
         for (int i = 0; i < items.size(); i++) {
@@ -55,6 +63,7 @@ public record Room(String name, String description, String[] exits, List<Item> i
      * Gets item from available items =
      * @param itemName name of the item
      * @return wanted item
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public Item getItem(String itemName) {
         for (int i = 0; i < items.size(); i++) {
@@ -69,6 +78,7 @@ public record Room(String name, String description, String[] exits, List<Item> i
      * If item is available
      * @param name name of searched item
      * @return if room has the item
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public boolean hasItem(String name) {
         for (Item item : items) {

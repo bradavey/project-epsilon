@@ -1,5 +1,9 @@
 package cz.bradavey.game;
 
+/**
+ * Manages npcs and interactions
+ * <li> author: brada (bradadavidcz@gmail.com)
+ */
 public class NPC {
     private final String name;
     private final String dialogueInitial;
@@ -40,6 +44,7 @@ public class NPC {
      * Handles interactions with player
      * @param player player that is being interacted with
      * @return console output
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public String talk(Player player) {
         if (!hasBeenTalkedTo) {

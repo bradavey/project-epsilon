@@ -4,18 +4,29 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Stores player game data
+ * <li> author: brada (bradadavidcz@gmail.com)
+ */
 public class Player {
     private Room currentRoom;
     private final List<Item> inventory;
     private final int maxCapacity = 3;
     private boolean hasCode;
 
+    /**
+     * Constructor used for game initialization
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     public Player(Room currentRoom) {
         this.currentRoom = currentRoom;
         this.inventory = new ArrayList<>();
         this.hasCode = false;
     }
 
+    /**
+     * Used for testing
+     */
     public Player(Room currentRoom, List<Item> inventory, boolean hasCode) {
         this.currentRoom = currentRoom;
         this.inventory = inventory;
@@ -41,6 +52,7 @@ public class Player {
     /**
      * @param item item added to inventory
      * @return false if inventory is full
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public boolean addItem(Item item) {
         if (inventory.size() < maxCapacity) {
@@ -58,6 +70,7 @@ public class Player {
      * Removes item from inventory
      * @param itemName name of removed item
      * @return removed item
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public Item removeItem(String itemName) {
         for (int i = 0; i < inventory.size(); i++) {
@@ -72,6 +85,7 @@ public class Player {
      * Checks for item in inventory
      * @param itemName name of checked item
      * @return if item is in inventory
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public boolean hasItem(String itemName) {
         for (int i = 0; i < inventory.size(); i++) {
@@ -84,6 +98,7 @@ public class Player {
 
     /**
      * @return true if inventory is full
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public boolean isInventoryFull() {
         return inventory.size() >= maxCapacity;
@@ -92,6 +107,7 @@ public class Player {
     /**
      * Sums up whole player
      * @return state of player stats
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     @Override
     public String toString() {

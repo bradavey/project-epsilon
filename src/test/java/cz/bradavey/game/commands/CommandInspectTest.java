@@ -13,11 +13,19 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests inspections
+ * <li> author: brada (bradadavidcz@gmail.com)
+ */
 class CommandInspectTest {
 
     Player player;
     Map<String, Room> rooms;
 
+    /**
+     * Sets up test parameters for {@code execute()}
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @BeforeEach
     void setUp() {
         this.player = new Player(
@@ -30,6 +38,10 @@ class CommandInspectTest {
         this.rooms.get(null).addItem(new Item("roomItem", "testRoomItemDescription", false));
     }
 
+    /**
+     * Tests inspections on items in player inventory and in rooms, rooms
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Test
     void execute() {
         CommandInspect inspect = new CommandInspect(player, rooms);

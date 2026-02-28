@@ -11,12 +11,20 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests using an item
+ * <li> author: brada (bradadavidcz@gmail.com)
+ */
 class CommandUseTest {
 
     Player player;
     Player player2;
     Player player3;
 
+    /**
+     * Sets up test parameters for {@code execute()}
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @BeforeEach
     void setUp() {
         this.player = new Player(
@@ -36,6 +44,10 @@ class CommandUseTest {
         this.player3.getCurrentRoom().addItem(new Item("testItem", null, true));
     }
 
+    /**
+     * Test for winning, item name validity, code knowledge and item immobility
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Test
     void execute() {
         CommandUse use = new CommandUse(player);

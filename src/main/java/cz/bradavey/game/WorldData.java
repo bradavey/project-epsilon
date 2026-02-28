@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * Contains game data
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class WorldData {
     private String startingRoom;
@@ -22,6 +23,7 @@ public class WorldData {
     /**
      * adds room to rooms
      * @param room added room
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public void addRoom(Room room) {
         rooms.put(room.name().toLowerCase(), room);

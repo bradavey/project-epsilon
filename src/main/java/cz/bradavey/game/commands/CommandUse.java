@@ -7,6 +7,7 @@ import java.security.InvalidParameterException;
 
 /**
  * Handles using immovable objects/winning
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class CommandUse implements Command {
     private final Player player;
@@ -19,6 +20,7 @@ public class CommandUse implements Command {
     /**
      * Decides if player won
      * @param arg target immovable object
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     @Override
     public String execute(String arg) {
@@ -31,6 +33,10 @@ public class CommandUse implements Command {
         throw new InvalidParameterException("No usable item: " + arg);
     }
 
+    /**
+     * @return true of false dependant directly on {@code execute()}
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Override
     public boolean exit() {
         return win;

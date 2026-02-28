@@ -11,11 +11,19 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests taking items
+ * <li> author: brada (bradadavidcz@gmail.com)
+ */
 class CommandTakeTest {
 
     Player player;
     Player player2;
 
+    /**
+     * Sets up test parameters for {@code execute()}
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @BeforeEach
     void setUp() {
         this.player = new Player(
@@ -34,6 +42,10 @@ class CommandTakeTest {
         }
     }
 
+    /**
+     * Tests for item portability, correct name and inventory cap
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Test
     void execute() {
         CommandTake take = new CommandTake(player);

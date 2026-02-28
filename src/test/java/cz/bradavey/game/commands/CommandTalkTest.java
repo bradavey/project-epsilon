@@ -1,6 +1,5 @@
 package cz.bradavey.game.commands;
 
-import cz.bradavey.game.Item;
 import cz.bradavey.game.NPC;
 import cz.bradavey.game.Player;
 import cz.bradavey.game.Room;
@@ -12,10 +11,18 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests talking to npcs
+ * <li> author: brada (bradadavidcz@gmail.com)
+ */
 class CommandTalkTest {
 
     Player player;
 
+    /**
+     * Sets up test parameters for {@code execute()}
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @BeforeEach
     void setUp() {
         this.player = new Player(
@@ -28,6 +35,10 @@ class CommandTalkTest {
         );
     }
 
+    /**
+     * Tests initial dialogue, interaction after completing quest and correctness of npc name
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Test
     void execute() {
         CommandTalk talk = new CommandTalk(player);

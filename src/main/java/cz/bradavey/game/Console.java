@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 /**
  * Handles game cycle, loading and variables
+ * <li> author: brada (bradadavidcz@gmail.com), gemini (gemini.google.com)
  */
 public class Console {
     private boolean gameOver = false;
@@ -15,6 +16,7 @@ public class Console {
 
     /**
      * Does game cycle
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public void run() {
         setGame();
@@ -32,6 +34,7 @@ public class Console {
     /**
      * Processes command
      * @param input whole user entered line
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     private void processCommand(String input) throws Exception {
         String command;
@@ -50,6 +53,7 @@ public class Console {
 
     /**
      * Loads game data
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     private void setGame() {
         try {
@@ -65,7 +69,7 @@ public class Console {
 
     /**
      * Clears console
-     * <li>Gemini work btw
+     * <li> author: gemini (gemini.google.com)
      */
     private void clearConsole() {
         String os = System.getProperty("os.name");
@@ -85,6 +89,7 @@ public class Console {
      * Scans for user input
      * @param prompt prints if not null
      * @return scanned input
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public static String scanString(String prompt) {
         if (!prompt.isEmpty()) System.out.print(prompt);
@@ -97,6 +102,7 @@ public class Console {
      * @param path name of the file in resource folder
      * @return array of loaded strings
      * @throws IOException
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public static String[] getTXT(String path) throws IOException {
         try (InputStream in = Console.class.getResourceAsStream(path)) {

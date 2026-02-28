@@ -9,10 +9,11 @@ import java.util.Map;
 
 /**
  * Moves player to different room
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class CommandGo implements Command {
-    private Player player;
-    private Map<String, Room> rooms;
+    private final Player player;
+    private final Map<String, Room> rooms;
 
     public CommandGo(Player player, Map<String, Room> rooms) {
         this.player = player;
@@ -22,6 +23,7 @@ public class CommandGo implements Command {
     /**
      * Moves player
      * @param arg room to be moved to
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     @Override
     public String execute(String arg) {
@@ -36,6 +38,10 @@ public class CommandGo implements Command {
         throw new InvalidParameterException("Invalid room: " + arg);
     }
 
+    /**
+     * @return false - no game cycle interruption
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Override
     public boolean exit() {
         return false;

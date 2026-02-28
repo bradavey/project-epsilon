@@ -7,6 +7,7 @@ import java.security.InvalidParameterException;
 
 /**
  * Handles interactions with NPCs
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class CommandTalk implements Command {
     private Player player;
@@ -18,7 +19,7 @@ public class CommandTalk implements Command {
     /**
      * Talks to and NPC
      * @param arg target NPC
-     * @return
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     @Override
     public String execute(String arg) {
@@ -28,6 +29,10 @@ public class CommandTalk implements Command {
         throw new InvalidParameterException("No character: " + arg);
     }
 
+    /**
+     * @return false - no game cycle interruption
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Override
     public boolean exit() {
         return false;

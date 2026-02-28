@@ -7,6 +7,7 @@ import java.security.InvalidParameterException;
 
 /**
  * Handles item pick up
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class CommandTake implements Command {
     private final Player player;
@@ -18,6 +19,7 @@ public class CommandTake implements Command {
     /**
      * Picks up an item
      * @param arg item available in current room
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     @Override
     public String execute(String arg) {
@@ -32,6 +34,10 @@ public class CommandTake implements Command {
         } else throw new IllegalStateException("Full inventory");
     }
 
+    /**
+     * @return false - no game cycle interruption
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Override
     public boolean exit() {
         return false;

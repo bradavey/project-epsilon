@@ -9,6 +9,7 @@ import java.util.Map;
 
 /**
  * Saves the commands
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class CommandRegistry {
     private Player player;
@@ -25,6 +26,7 @@ public class CommandRegistry {
      * Sets the commands
      * @return Map of commands
      * @throws IOException
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     private Map<String, Command> initialize() throws IOException {
         Map<String, Command> result = new HashMap<>();
@@ -43,6 +45,7 @@ public class CommandRegistry {
     /**
      * @param name name of wanted command
      * @return wanted command
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     public Command getCommand(String name) {
         String corrected = name.trim().toLowerCase();

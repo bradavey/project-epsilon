@@ -11,6 +11,7 @@ import java.util.Map;
 
 /**
  * Handles descriptions of items / rooms
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class CommandInspect implements Command {
     private final Map<String, String> descriptions;
@@ -32,6 +33,7 @@ public class CommandInspect implements Command {
     /**
      * Gives a description
      * @param arg item/room to be described
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     @Override
     public String execute(String arg) {
@@ -40,6 +42,10 @@ public class CommandInspect implements Command {
         } else throw new InvalidParameterException(arg + " doesn't have a description");
     }
 
+    /**
+     * @return false - no game cycle interruption
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Override
     public boolean exit() {
         return false;

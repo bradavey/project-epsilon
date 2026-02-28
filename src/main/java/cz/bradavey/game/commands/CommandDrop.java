@@ -6,6 +6,7 @@ import cz.bradavey.game.Player;
 
 /**
  * Handles dropping an item
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class CommandDrop implements Command {
     private final Player player;
@@ -17,6 +18,7 @@ public class CommandDrop implements Command {
     /**
      * Drops item
      * @param arg name of dropped item
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     @Override
     public String execute(String arg) {
@@ -25,6 +27,10 @@ public class CommandDrop implements Command {
         return "Dropped item: " + temp.name();
     }
 
+    /**
+     * @return false - no game cycle interruption
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Override
     public boolean exit() {
         return false;

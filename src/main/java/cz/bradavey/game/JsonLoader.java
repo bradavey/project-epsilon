@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Handles JSON resources
+ * <li> author: brada (bradadavidcz@gmail.com), gemini (gemini.google.com)
  */
 public class JsonLoader {
     /**
@@ -15,6 +16,7 @@ public class JsonLoader {
      * @param filePath name of the JSON in resource folder
      * @return game data
      * @throws IOException
+     * <li> author: brada (bradadavidcz@gmail.com), gemini (gemini.google.com)
      */
     public static WorldData loadGameWorld(String filePath) throws IOException {
         Gson gson = new Gson();
@@ -53,6 +55,7 @@ public class JsonLoader {
 
     /**
      * Middle point between JSON and game data
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     private static class WorldDataDTO {
         String startingRoom;

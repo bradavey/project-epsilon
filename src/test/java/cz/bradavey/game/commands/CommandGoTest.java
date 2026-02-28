@@ -4,7 +4,6 @@ import cz.bradavey.game.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +11,10 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Tests Going
+ * <li> author: brada (bradadavidcz@gmail.com)
+ */
 class CommandGoTest {
 
     Player player;
@@ -20,8 +23,12 @@ class CommandGoTest {
     Map<String, Room> rooms;
     Map<String, Room> rooms2;
 
+    /**
+     * Sets up test parameters for {@code execute()}
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         this.player = new Player(
                 new Room(null, null, new String[]{"testRoom"}, null, null, null),
                 new ArrayList<>(), false
@@ -41,6 +48,10 @@ class CommandGoTest {
         this.rooms2.put("testRoom", new Room("testRoom", null, null, null, null, "lockItem"));
     }
 
+    /**
+     * Tests correct and incorrect room name, locked rooms
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Test
     void execute() {
         CommandGo go = new CommandGo(player, rooms);

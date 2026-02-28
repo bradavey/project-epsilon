@@ -10,6 +10,7 @@ import java.util.Map;
 
 /**
  * Handles hints
+ * <li> author: brada (bradadavidcz@gmail.com)
  */
 public class CommandHint implements Command {
     private final Player player;
@@ -25,6 +26,7 @@ public class CommandHint implements Command {
     /**
      * Chooses a correct hint in a situation
      * @param arg null (/ignored)
+     * <li> author: brada (bradadavidcz@gmail.com)
      */
     @Override
     public String execute(String arg) {
@@ -41,6 +43,10 @@ public class CommandHint implements Command {
         } else return hints[5];
     }
 
+    /**
+     * @return false - no game cycle interruption
+     * <li> author: brada (bradadavidcz@gmail.com)
+     */
     @Override
     public boolean exit() {
         return false;
